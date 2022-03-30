@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/item_layout_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_main_icon"
+            imageFromUrl='@{repoData.owner.avatar_url}'
+            android:layout_width="@dimen/image_height_width"
+            android:layout_height="@dimen/image_height_width"
+            android:background="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            style="@style/text_list_style"
+            android:layout_marginStart="@dimen/margin_shimmer_center"
+            android:layout_width="@dimen/width_shimmer_title"
+            android:layout_height="12sp"
+            android:background="@color/teal_200"
+            app:layout_constraintLeft_toRightOf="@id/iv_main_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_desc"
+            style="@style/text_list_style"
+            android:layout_height="12sp"
+            android:layout_width="@dimen/width_shimmer_desc"
+            android:layout_marginTop="@dimen/margin_shimmer_center"
+            android:layout_marginStart="@dimen/margin_shimmer_center"
+            android:background="@color/teal_200"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintStart_toEndOf="@+id/iv_main_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintWidth_percent="0.9"
+            tools:text=" " />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/devider_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

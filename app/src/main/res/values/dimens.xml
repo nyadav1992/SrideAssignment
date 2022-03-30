@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="image_height_width">48dp</dimen>
+    <dimen name="width_shimmer_title">100dp</dimen>
+    <dimen name="width_shimmer_desc">260dp</dimen>
+    <dimen name="margin_shimmer">21dp</dimen>
+    <dimen name="margin_shimmer_center">16dp</dimen>
+    <dimen name="item_layout_padding">14dp</dimen>
+</resources>
