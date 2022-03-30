@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SrideAssignment</string>
+    <string name="no_network">No Network Connection</string>
 </resources>

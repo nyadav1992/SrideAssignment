@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.srideassignment.adapter.NewsAdapter
 import com.example.srideassignment.api.Response
 import com.example.srideassignment.databinding.MainActivityBinding
+import com.example.srideassignment.utils.NetworkUtils
 import com.example.srideassignment.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,8 +26,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.main_activity)
 
-        getNewsData()
+        if (NetworkUtils.isInternetAvailable(this))
+            getNewsData()
+        else
+            showError(getString(R.string.no_network))
 
+    }
+
+    private fun showError(msg: String) {
+        activityMainBinding.shimmerLayout.visibility = View.GONE
+        activityMainBinding.rvNews.visibility = View.GONE
+        activityMainBinding.tvError.visibility = View.VISIBLE
+        activityMainBinding.tvError.text = msg
     }
 
     private fun getNewsData() {
@@ -42,9 +53,7 @@ class MainActivity : AppCompatActivity() {
                         newsAdapter.submitList(it.data?.articles)
                     }
                     is Response.Error -> {
-                        activityMainBinding.shimmerLayout.visibility = View.GONE
-                        activityMainBinding.rvNews.visibility = View.GONE
-                        Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
+                        showError(it.toString())
                     }
 
                     is Response.Loading -> {
